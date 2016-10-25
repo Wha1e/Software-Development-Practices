@@ -1,5 +1,6 @@
 /**
  * Created by Alexander on 10/24/16.
+ * @author Alexander Chatron-Michaud
  * This class is to run an automated booking agent on a given airplane. This class is made to run in a thread.
  */
 import java.util.concurrent.locks.Lock;
@@ -11,7 +12,7 @@ public class AutomatedAgent implements Runnable {
     private Airplane my_airplane;
     private Lock currently_booking;
 
-    /*
+    /**
      * Constructs an automated agent
      * @param init_agent_number the integer number this agent will use for booking/marking seats
      * @param init_my_airplane the airplane the agent will be booking seats in
@@ -23,8 +24,8 @@ public class AutomatedAgent implements Runnable {
         this.currently_booking = init_currently_booking;
     }
 
-    /*
-     * Automatically books seats every 10 seconds. Locks before attempting booking to prevent race conditions.
+    /**
+     * Automatically books seats every few seconds. Locks before attempting booking to prevent race conditions.
      */
     public void run() {
         try {
@@ -34,7 +35,7 @@ public class AutomatedAgent implements Runnable {
                 currently_booking.lock(); //critical section start
                 my_airplane.set_if_free(this.agent_number, row, seat);
                 currently_booking.unlock(); //critical section end
-                Thread.sleep(5000);
+                Thread.sleep(100);
             }
         }
         catch (InterruptedException exception) {

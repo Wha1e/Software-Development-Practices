@@ -10,7 +10,7 @@ public class Airplane {
     private int[][] seatingArray;
     private int seats_left;
 
-    /*
+    /**
      * Constructs an Airplane Object
      */
     public Airplane() {
@@ -18,7 +18,7 @@ public class Airplane {
         this.seats_left = 200;
     }
 
-    /*
+    /**
      * This method checks if there are seats left in the plane.
      * @return true if there are seats left, otherwise false
      */
@@ -26,7 +26,7 @@ public class Airplane {
         return (seats_left > 0);
     }
 
-    /*
+    /**
      * This method checks if a seat is free, and if it is, sets the seat as taken by the agent's number.
      * Precondition: row and number are in the right range
      * @param agent the agent trying to book the seat, whose number will fill that seat if taking it
@@ -51,7 +51,7 @@ public class Airplane {
         }
     }
 
-    /*
+    /**
      * This method shows the current seating arrangement for the purpose of a GUI.
      * @return a clone of the airplanes seating arrangements (to protect the internal reference)
      */

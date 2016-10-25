@@ -26,7 +26,6 @@ public class RunAgents {
         agent1_thread.start();
         agent2_thread.start();
         agent3_thread.start();
-        System.out.println("All seats filled, application finished and exiting...");
 
     }
 }
